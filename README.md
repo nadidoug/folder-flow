@@ -1,105 +1,73 @@
-# Folder Creator
+# Folder Flow
 
-A Java-based project setup utility that automates frontend project folder creation and opens the project directly in Visual Studio Code.
+A lightweight Java utility that creates a project folder, adds custom subfolders, and opens the finished project directly in Visual Studio Code.
 
-This tool was built to speed up repetitive development setup tasks for web projects and reusable widget systems.
-
----
+Folder Flow includes both a command-line workflow and a Swing desktop interface. It was built to remove repetitive setup work from small web and software projects.
 
 ## Features
 
-- Creates a main project folder
-- Creates custom subfolders based on user input
-- Accepts dynamic folder names
-- Opens the project automatically in VS Code
-- Terminal-based workflow
-- Lightweight and beginner-friendly
+- Creates a named project directory.
+- Creates any number of custom subfolders.
+- Opens the finished directory in Visual Studio Code.
+- Provides CLI and desktop GUI versions.
+- Validates project names in the GUI.
+- Uses a separate `ProjectBuilder` service class for file-system operations.
 
----
-
-## Example Workflow
-
-```text
-Enter project name:
-website-upgrade-widgets
-
-How many folders do you want inside the project?
-3
-
-Enter folder name 1:
-widgets
-
-Enter folder name 2:
-assets
-
-Enter folder name 3:
-demo
-```
-
-The program then creates:
-
-```text
-website-upgrade-widgets/
-│
-├── widgets
-├── assets
-├── demo
-```
-
-And automatically opens the project in Visual Studio Code.
-
----
-
-## Technologies Used
+## Built with
 
 - Java
-- Scanner class
-- File class
-- ProcessBuilder
-- Command line automation
+- Java Swing
+- `Scanner`
+- `File`
+- `ProcessBuilder`
 
----
-
-## Skills Demonstrated
-
-- User input handling
-- Looping
-- File system automation
-- Process execution
-- Java terminal applications
-- Developer tooling concepts
-
----
-
-## Future Improvements
-
-- Automatic file generation
-- Widget template generation
-- GUI version
-- Cross-platform support
-- Git initialization
-- README generation
-- Package installation
-- One-command project scaffolding
-
----
-
-## Run Instructions
-
-Compile:
+## Run the command-line version
 
 ```bash
 javac FolderCreator.java
-```
-
-Run:
-
-```bash
 java FolderCreator
 ```
 
----
+## Run the desktop version
 
-## Purpose
+Compile the GUI and its service class:
 
-This project was created as part of a frontend tooling and automation learning path focused on improving development workflow efficiency.
+```bash
+javac FolderCreatorGUI.java ProjectBuilder.java
+java FolderCreatorGUI
+```
+
+Visual Studio Code must be installed and its `code` command must be available in your Windows PATH.
+
+## Example
+
+Input:
+
+```text
+Project name: client-website
+Folders: assets, css, js, images
+```
+
+Output:
+
+```text
+client-website/
+├── assets/
+├── css/
+├── images/
+└── js/
+```
+
+## Skills demonstrated
+
+- Object-oriented Java
+- User-input handling and validation
+- Loops and collections of values
+- File-system automation
+- Process execution
+- Event-driven Swing interfaces
+- Separation between UI and service logic
+
+## Current limitation
+
+The VS Code launcher currently targets Windows. Cross-platform launch support and automated project templates are planned improvements.
